@@ -1,0 +1,253 @@
+:root{
+	--white: #fffdfa;
+	--white-o: #fffdfadf;
+	--brown: #0d0901;
+	--brown-o: #0d090155;
+	--shadow-inset: inset 16px 16px 8px -4px #00000088;
+	--font-size-normal: calc(1.5rem - calc(2048px - 100vw) / 256);
+	--font-size-normal-small: calc(1.5rem - calc(2048px - 100vw) / 192);
+	--font-size-medium: calc(3rem - calc(2048px - 100vw) / 48);
+	--font-size-big: calc(5rem - calc(2048px - 100vw) / 48);
+
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	min-width: 0;
+}
+
+html, body{
+	height: 100dvh;
+	max-height: 100dvh;
+	max-width: 100%;
+}
+
+body{
+	background: url('./images/background.webp') no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+
+	overflow-x: hidden;
+	overflow-y: auto;
+	scroll-behavior: smooth;
+
+	display: flex;
+	flex-direction: column;
+}
+
+a{
+	text-decoration: none;
+	display: block;
+	width: max-content;
+	border-radius: 32px;
+	padding: 8px 16px;
+}
+
+
+
+/** Inicio */
+
+
+
+.inicio{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: max-content 1fr;
+
+	min-height: 100dvh;
+	padding-inline: min(128px, 4dvw);
+}
+
+.inicio *{
+	color: var(--white);
+}
+
+.inicio hgroup{
+	padding-top: min(128px, 240vw);
+}
+
+.inicio h1{
+	width: min(576px, 100%);
+	font-size: var(--font-size-big);
+	text-wrap: wrap;
+}
+
+.inicio p{
+	font-size: var(--font-size-normal-small);
+	margin-block: 16px;
+}
+
+.inicio hgroup a{
+	font-size: var(--font-size-normal-small);
+	color: var(--brown);
+	background-color: var(--white-o);
+	transition: background-color .3s ease-in 0s;
+}
+
+.inicio hgroup a:hover{
+	background-color: var(--white);
+}
+
+.navbar{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+
+	padding-block: 24px;
+}
+
+.navbar .logo{
+	width: min(128px, 94vw);
+}
+
+.menu{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: min(32px, 2vw);
+}
+
+.menu li{
+	list-style: none;
+}
+
+.menu a{
+	font-size: var(--font-size-normal);
+	color: var(--white);
+	transition: background-color .3s ease-in 0s, color .3s linear 0s;
+}
+
+.menu a:hover{
+	background-color: var(--white-o);
+	color: var(--brown);
+}
+
+
+
+/** Muestras */
+
+
+
+.muestras{
+	display: grid;
+	align-content: space-around;
+	gap: 64px;
+
+	padding-bottom: 64px;
+	padding-inline: min(128px, 4dvw);
+}
+
+.muestras>article{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	column-gap: 128px;
+	row-gap: 64px;
+}
+
+.muestras picture:has(>.logo){
+	display: block;
+	margin-inline: auto;
+	width: min(256px, 98%);
+}
+
+.muestras>article>picture{
+	justify-self: center;
+	width: min(256px, 100%);
+	height: 416px;
+
+	display: grid;
+	place-items: center;
+	
+	position: relative;
+}
+
+.muestras>article>picture::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--white);
+	clip-path: polygon(0% 10%, 100% 0%, 100% 90%, 0% 100%);
+	z-index: -1;
+}
+
+.muestras>article>picture::after{
+	content: '';
+	position: absolute;
+	top: 48px;
+	left: 48px;
+	width: 90%;
+	height: 90%;
+	background-color: var(--white-o);
+	clip-path: polygon(0% 10%, 100% 0%, 100% 90%, 0% 100%);
+	z-index: -2;
+}
+
+.muestras>article>picture>img{
+	position: relative;
+	bottom: -32px;
+
+	width: 160px;
+	height: auto;
+
+	filter: drop-shadow(0 0 4px var(--brown-o));
+}
+
+.end{
+	position: relative;
+}
+
+.end>article{
+	position: absolute;
+	top: 50%;
+	left: 2%;
+	translate: 0px -50%;
+
+	width: min(384px, 30%);
+}
+
+.end h1{
+	font-size: var(--font-size-medium);
+	color: var(--brown);
+}
+
+.end p{
+	font-size: var(--font-size-normal);
+	color: var(--brown);
+}
+
+.end>article>ul{
+	display: flex;
+	width: 70%;
+	gap: min(32px, 2vw);
+
+	margin-block: 16px;
+}
+
+.end>article>ul>li{
+	list-style: none;
+}
+
+.end>article>ul>li>a{
+	display: block;
+
+	transition: scale .2s linear 0s;
+}
+
+.end a:hover{
+	scale: 1.2;
+}
+
+.end>article>ul img{
+	width: min(92px, 4vw);
+	aspect-ratio: 1 / 1;
+}
